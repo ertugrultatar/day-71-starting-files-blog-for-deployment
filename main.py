@@ -16,8 +16,10 @@ import os
 
 
 
+
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', "fallback-secret-key")
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
@@ -284,6 +286,10 @@ def contact():
 #         connection.starttls()
 #         connection.login(MAIL_ADDRESS, MAIL_APP_PW)
 #         connection.sendmail(MAIL_ADDRESS, MAIL_APP_PW, email_message)
+
+
+
+print(app.config['SECRET_KEY'])
 
 if __name__ == "__main__":
     app.run(debug=False)
